@@ -4,6 +4,7 @@
   import path from 'path';
 
   export default defineConfig({
+    base: "./",
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -49,7 +50,6 @@
         '@': path.resolve(__dirname, './src'),
       },
     },
-    base: "./",
     build: {
       target: 'esnext',
       outDir: 'dist',
