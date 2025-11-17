@@ -85,7 +85,8 @@ export function PortfolioPage() {
         'Multi-zone tracking capabilities'
       ],
       tags: ['IoT Integration', 'Real-time Data', 'Data Visualization', 'Environmental Sensors', 'Analytics Dashboard'],
-      link: 'https://jay.jashom.com/projects/enviropulse'
+      link: 'https://jay.jashom.com/projects/enviropulse',
+      liveUrl: 'https://enviropulse.jashom.com'
     },
     {
       title: 'GreenSphere - ESG Management Platform',
@@ -101,7 +102,8 @@ export function PortfolioPage() {
         'Sustainability reporting automation'
       ],
       tags: ['ESG Metrics', 'Sustainability Tracking', 'Reporting Tools', 'Data Visualization', 'Compliance Management'],
-      link: 'https://jay.jashom.com/projects/greensphere'
+      link: 'https://jay.jashom.com/projects/greensphere',
+      liveUrl: 'https://greenesg.jashom.com/'
     },
     {
       title: 'EcoBot AI - Sustainability Assistant',
@@ -117,7 +119,8 @@ export function PortfolioPage() {
         'High accuracy LLM integration'
       ],
       tags: ['AI Integration', 'Natural Language Processing', 'Sustainability Analytics', 'Environmental Compliance', 'Real-time Analytics'],
-      link: 'https://jay.jashom.com/projects/ecobot-ai'
+      link: 'https://jay.jashom.com/projects/ecobot-ai',
+      liveUrl: 'https://ecoai.jashom.com/dashboard'
     },
     {
       title: 'Jashom Health - Hospital System',
@@ -134,7 +137,8 @@ export function PortfolioPage() {
         'Supports 25+ hospital locations simultaneously'
       ],
       tags: ['HIPAA Compliance', 'Multi-location Support', 'Real-time Monitoring', 'Patient Management', 'Healthcare Analytics'],
-      link: 'https://jay.jashom.com/projects/jashom-health'
+      link: 'https://jay.jashom.com/projects/jashom-health',
+      liveUrl: 'https://jashomhealth.jashom.com'
     },
     {
       title: 'Jashom Healthcare - Interoperability Platform',
@@ -151,7 +155,8 @@ export function PortfolioPage() {
         '24/7 real-time synchronization'
       ],
       tags: ['HL7 Integration', 'FHIR Standards', 'EMR/LIS/PACS', 'IoT Device Integration', 'Real-time Sync', 'HIPAA Compliance'],
-      link: 'https://jay.jashom.com/projects/jashom-healthcare'
+      link: 'https://jay.jashom.com/projects/jashom-healthcare',
+      liveUrl: 'https://jashomhealthcare.jashom.com'
     },
     {
       title: 'Jashom ICU Connect - Remote Monitoring',
@@ -168,7 +173,25 @@ export function PortfolioPage() {
         '100% 24/7 monitoring coverage'
       ],
       tags: ['Real-time Monitoring', 'Vital Signs Tracking', 'Expert Collaboration', 'Secure Communication', 'Role-based Access', 'HIPAA Compliance'],
-      link: 'https://jay.jashom.com/projects/jashom-icu-connect'
+      link: 'https://jay.jashom.com/projects/jashom-icu-connect',
+      liveUrl: 'https://jashomhealthcareplus.jashom.com'
+    },
+    {
+      title: 'RAG.LU - AI Knowledge Platform',
+      client: 'Jay Dave',
+      industry: 'AI & Machine Learning',
+      category: 'AI & Machine Learning',
+      challenge: 'Organizations needed intelligent knowledge management and information retrieval solutions powered by cutting-edge AI technology.',
+      solution: 'Founded an innovative AI platform leveraging Retrieval-Augmented Generation (RAG) technology for intelligent knowledge management and information retrieval solutions.',
+      impact: [
+        '93% accuracy in information retrieval',
+        '10x faster processing speed',
+        'RAG-powered knowledge management',
+        'AI transformation solutions for enterprises'
+      ],
+      tags: ['RAG Technology', 'AI Platform', 'Machine Learning', 'Knowledge Management'],
+      link: 'https://jay.jashom.com/projects/rag-lu',
+      liveUrl: 'https://rag.lu'
     },
     {
       title: 'Healthcare AI Diagnostics Platform',
@@ -368,18 +391,31 @@ export function PortfolioPage() {
                       </motion.div>
                     ))}
                   </div>
-                  {study.link ? (
-                    <motion.a
-                      href={study.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-6 inline-flex items-center gap-2 text-[#00FFFF] hover:text-white transition-colors"
-                      whileHover={{ x: 5 }}
-                    >
-                      <span>View Full Case Study</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.a>
-                  ) : null}
+                  <div className="mt-6 flex flex-col gap-3">
+                    {study.link ? (
+                      <motion.a
+                        href={study.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#00FFFF] hover:text-white transition-colors"
+                        whileHover={{ x: 5 }}
+                      >
+                        <span>View Full Case Study</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.a>
+                    ) : null}
+                    {study.liveUrl ? (
+                      <a
+                        href={study.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#1E90FF] hover:text-[#00FFFF] transition-colors"
+                      >
+                        <span>Visit Live Platform</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </a>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </GlassCard>
