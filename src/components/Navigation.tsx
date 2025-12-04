@@ -31,26 +31,57 @@ const menuItemVariants = {
 export function Navigation() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { 
-      label: 'About Us', 
+    {
+      label: 'About Us',
       dropdown: [
         { path: '/about', label: 'About Us' },
         { path: '/blog', label: 'Blog' },
         { path: '/careers', label: 'Career' }
       ]
     },
-    { path: '/services', label: 'Services' },
-    { path: '/solutions', label: 'Solutions' },
+    {
+      label: 'Services',
+      dropdown: [
+        { path: '/services/ai-automation', label: 'AI & Automation' },
+        { path: '/services/ai-gpu-optimization', label: 'AI GPU Optimization' },
+        { path: '/services/rag-applications', label: 'RAG Applications' },
+        { path: '/services/devops-cloud', label: 'DevOps & Cloud' },
+        { path: '/services/devsecops', label: 'DevSecOps' },
+        { path: '/services/vapt', label: 'VAPT' },
+        { path: '/services/product-engineering', label: 'Product Engineering' },
+        { path: '/services/staff-augmentation', label: 'Staff Augmentation' },
+        { path: '/services/ai-agentic-systems', label: 'AI Agentic Systems' },
+        { path: '/services/custom-development', label: 'Custom Development' },
+        { path: '/services/capability-matrix', label: 'Capability Matrix' }
+      ]
+    },
+    {
+      label: 'Solutions',
+      dropdown: [
+        { path: '/solutions/healthtech', label: 'HealthTech' },
+        { path: '/solutions/foodtech', label: 'FoodTech' },
+        { path: '/solutions/environmenttech', label: 'EnvironmentTech' },
+        { path: '/solutions/retail-tech', label: 'Retail Tech' },
+        { path: '/solutions/supply-chain', label: 'Supply Chain' },
+        { path: '/solutions/fintech', label: 'FinTech' },
+        { path: '/solutions/legal-and-tax', label: 'Legal & Tax' }
+      ]
+    },
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/contact', label: 'Contact' },
   ];
 
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setActiveDropdown(null);
+  };
+
   return (
-    <motion.nav 
+    <motion.nav
       className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-[#1E90FF]/20"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -62,15 +93,9 @@ export function Navigation() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-gradient relative"
               whileHover={{ scale: 1.05 }}
             >
-              NeoTeq
-              <motion.div
-                className="absolute -inset-1 bg-gradient-to-r from-[#1E90FF] to-[#00FFFF] opacity-0 blur-lg"
-                whileHover={{ opacity: 0.3 }}
-                transition={{ duration: 0.3 }}
-              />
+              <img src="/neoteq-logo.png" alt="NeoTeq" className="h-12 w-auto" />
             </motion.div>
           </Link>
 
@@ -87,8 +112,8 @@ export function Navigation() {
                 {item.dropdown ? (
                   <div
                     className="relative"
-                    onMouseEnter={() => setAboutDropdownOpen(true)}
-                    onMouseLeave={() => setAboutDropdownOpen(false)}
+                    onMouseEnter={() => setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
                       className="flex items-center gap-1 text-white hover:text-[#00FFFF] transition-colors"
@@ -99,26 +124,26 @@ export function Navigation() {
                       >
                         {item.label}
                       </motion.span>
-                      <ChevronDown className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
-                    
+
                     <AnimatePresence>
-                      {aboutDropdownOpen && (
+                      {activeDropdown === item.label && (
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-2 w-48 glass-effect rounded-xl border border-[#1E90FF]/30 overflow-hidden"
+                          className="absolute top-full left-0 mt-2 w-64 glass-effect rounded-xl border border-[#1E90FF]/30 overflow-hidden max-h-[80vh] overflow-y-auto"
                         >
                           {item.dropdown.map((subItem, subIndex) => (
                             <Link
                               key={subItem.path}
                               to={subItem.path}
-                              className={`block px-4 py-3 transition-colors ${
-                                location.pathname === subItem.path
-                                  ? 'text-[#1E90FF] bg-[#1E90FF]/10'
-                                  : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
-                              }`}
+                              onClick={handleLinkClick}
+                              className={`block px-4 py-3 transition-colors ${location.pathname === subItem.path
+                                ? 'text-[#1E90FF] bg-[#1E90FF]/10'
+                                : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
+                                }`}
                             >
                               {subItem.label}
                             </Link>
@@ -130,11 +155,10 @@ export function Navigation() {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`relative transition-colors ${
-                      location.pathname === item.path
-                        ? 'text-[#1E90FF]'
-                        : 'text-white hover:text-[#00FFFF]'
-                    }`}
+                    className={`relative transition-colors ${location.pathname === item.path
+                      ? 'text-[#1E90FF]'
+                      : 'text-white hover:text-[#00FFFF]'
+                      }`}
                   >
                     <motion.span
                       whileHover={{ scale: 1.1 }}
@@ -213,12 +237,11 @@ export function Navigation() {
                           <Link
                             key={subItem.path}
                             to={subItem.path}
-                            onClick={() => setIsOpen(false)}
-                            className={`block py-2 px-6 rounded-lg transition-all ${
-                              location.pathname === subItem.path
-                                ? 'text-[#1E90FF] bg-[#1E90FF]/10'
-                                : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
-                            }`}
+                            onClick={handleLinkClick}
+                            className={`block py-2 px-6 rounded-lg transition-all ${location.pathname === subItem.path
+                              ? 'text-[#1E90FF] bg-[#1E90FF]/10'
+                              : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
+                              }`}
                           >
                             {subItem.label}
                           </Link>
@@ -227,12 +250,11 @@ export function Navigation() {
                     ) : (
                       <Link
                         to={item.path}
-                        onClick={() => setIsOpen(false)}
-                        className={`block py-2 px-4 rounded-lg transition-all ${
-                          location.pathname === item.path
-                            ? 'text-[#1E90FF] bg-[#1E90FF]/10'
-                            : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
-                        }`}
+                        onClick={handleLinkClick}
+                        className={`block py-2 px-4 rounded-lg transition-all ${location.pathname === item.path
+                          ? 'text-[#1E90FF] bg-[#1E90FF]/10'
+                          : 'text-white hover:text-[#00FFFF] hover:bg-white/5'
+                          }`}
                       >
                         {item.label}
                       </Link>

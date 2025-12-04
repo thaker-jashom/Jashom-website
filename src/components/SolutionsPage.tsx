@@ -18,8 +18,8 @@ const staggerContainer = {
 
 const staggerItem = {
   hidden: { opacity: 0, y: 30, rotateX: -10 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
     rotateX: 0,
     transition: {
@@ -102,7 +102,7 @@ export function SolutionsPage() {
         <CircuitDivider />
 
         {/* Solutions Grid */}
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
           variants={staggerContainer}
           initial="hidden"
@@ -110,12 +110,16 @@ export function SolutionsPage() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {solutions.map((solution, index) => (
-            <motion.div key={index} variants={staggerItem}>
+            <motion.div
+              key={index}
+              variants={staggerItem}
+              id={solution.title.toLowerCase().replace(/ /g, '-')}
+            >
               <GlassCard delay={0}>
                 <div className="flex flex-col h-full">
-                  <motion.div 
+                  <motion.div
                     className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1E90FF] to-[#00FFFF] flex items-center justify-center mb-4"
-                    whileHover={{ 
+                    whileHover={{
                       rotate: [0, -10, 10, -10, 0],
                       scale: 1.15
                     }}
@@ -127,8 +131,8 @@ export function SolutionsPage() {
                   <p className="text-white/70 mb-6 flex-grow">{solution.description}</p>
                   <div className="space-y-2">
                     {solution.features.map((feature, idx) => (
-                      <motion.div 
-                        key={idx} 
+                      <motion.div
+                        key={idx}
                         className="flex items-center text-white/80 group cursor-pointer"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -136,7 +140,7 @@ export function SolutionsPage() {
                         transition={{ delay: 0.5 + idx * 0.1 }}
                         whileHover={{ x: 5 }}
                       >
-                        <motion.div 
+                        <motion.div
                           className="w-1.5 h-1.5 rounded-full bg-[#1E90FF] mr-2"
                           whileHover={{ scale: 2 }}
                         />
@@ -159,9 +163,9 @@ export function SolutionsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <motion.div 
+          <motion.div
             className="glass-effect rounded-2xl p-12 border border-[#1E90FF]/30 relative overflow-hidden"
-            whileHover={{ 
+            whileHover={{
               borderColor: 'rgba(0, 255, 255, 0.5)',
               boxShadow: "0 20px 60px rgba(30, 144, 255, 0.3)"
             }}

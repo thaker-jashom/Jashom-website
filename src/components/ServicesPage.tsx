@@ -2,12 +2,12 @@ import { motion } from 'motion/react';
 import { CircuitDivider } from './CircuitDivider';
 import { GlassCard } from './GlassCard';
 import { SEO } from './SEO';
-import { 
-  Cpu, 
-  MessageSquare, 
-  Heart, 
-  Utensils, 
-  Leaf, 
+import {
+  Cpu,
+  MessageSquare,
+  Heart,
+  Utensils,
+  Leaf,
   ShoppingBag,
   Brain,
   Code,
@@ -29,8 +29,8 @@ const staggerContainer = {
 
 const staggerItem = {
   hidden: { opacity: 0, y: 20 },
-  show: { 
-    opacity: 1, 
+  show: {
+    opacity: 1,
     y: 0,
     transition: {
       type: "spring",
@@ -214,7 +214,7 @@ export function ServicesPage() {
         description="Comprehensive AI services: GPU Optimization & Attestation, RAG Applications, HealthTech, FoodTech, EnvironmentTech, and Retail Tech. Transform your industry with NeoTeq's expertise."
         keywords="AI GPU optimization, RAG applications, healthcare AI, food tech, environment tech, retail AI, CUDA development, LLM fine-tuning, AI services"
       />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -239,7 +239,7 @@ export function ServicesPage() {
         <CircuitDivider />
 
         {/* Services Grid */}
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-8 mt-16"
           variants={staggerContainer}
           initial="hidden"
@@ -250,6 +250,7 @@ export function ServicesPage() {
             <motion.div
               key={index}
               variants={staggerItem}
+              id={service.title.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and')}
             >
               <GlassCard className="h-full">
                 <div className="flex flex-col h-full">
@@ -263,7 +264,7 @@ export function ServicesPage() {
                   >
                     <service.icon className="w-8 h-8 text-black" />
                   </motion.div>
-                  
+
                   <h3 className="text-white mb-2">{service.title}</h3>
                   <p className="text-[#00FFFF] text-sm mb-3 italic">{service.tagline}</p>
                   <p className="text-white/70 text-sm mb-4">{service.description}</p>
@@ -320,7 +321,7 @@ export function ServicesPage() {
             </p>
           </div>
 
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-2 gap-8"
             variants={staggerContainer}
             initial="hidden"
@@ -375,7 +376,7 @@ export function ServicesPage() {
           viewport={{ once: true }}
         >
           <h2 className="text-center mb-12 text-gradient">Our Expertise Levels</h2>
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
             initial="hidden"
@@ -405,7 +406,7 @@ export function ServicesPage() {
               <motion.div key={index} variants={staggerItem}>
                 <GlassCard>
                   <div className="text-center">
-                    <motion.div 
+                    <motion.div
                       className="mb-4 text-gradient"
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
@@ -441,7 +442,7 @@ export function ServicesPage() {
         >
           <div className="glass-effect rounded-2xl p-12 border border-[#1E90FF]/30 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#1E90FF]/10 to-[#00FFFF]/10 pointer-events-none" />
-            
+
             <div className="relative z-10">
               <h2 className="mb-4 text-gradient">Ready to Transform Your Business?</h2>
               <p className="text-white/70 mb-8 max-w-2xl mx-auto">
