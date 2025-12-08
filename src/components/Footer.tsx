@@ -47,7 +47,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0A0A0A] border-t border-white/10">
+    <footer className="bg-black border-t border-[#333333]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
@@ -71,17 +71,17 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <a href="mailto:contact@neoteq.ai" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+              <a href="mailto:info@jashom.com" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">contact@neoteq.ai</span>
+                <span className="text-sm">info@jashom.com</span>
               </a>
-              <a href="tel:+15551234567" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+              <a href="tel:+919023906363" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+91 90239 06363</span>
               </a>
-              <div className="flex items-center gap-2 text-white/70">
-                <MapPin className="w-4 h-4" />
-                <span className="text-sm">Silicon Valley, CA</span>
+              <div className="flex items-center gap-2 text-white/70 items-start">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                <span className="text-sm">414, Satyam-2, Amba Business Park,<br />ATPL, Adalaj, Gujarat, India</span>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export function Footer() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="glass-effect rounded-2xl p-8 mb-12 border border-white/10">
+        <div className="glass-effect rounded-2xl p-8 mb-12">
           <div className="grid md:grid-cols-2 gap-6 items-center">
             <div>
               <h3 className="text-white mb-2 font-semibold">Stay Updated</h3>
@@ -154,10 +154,10 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+                className="flex-1 px-4 py-3 rounded-xl bg-black border border-[#333333] text-white placeholder-white/40 focus:border-white focus:outline-none focus:ring-1 focus:ring-white transition-all"
               />
               <motion.button
-                className="px-6 py-3 rounded-xl bg-white text-black hover:bg-gray-200 transition-colors whitespace-nowrap font-medium"
+                className="px-6 py-3 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-colors whitespace-nowrap font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -168,7 +168,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 mb-8"></div>
+        <div className="border-t border-[#333333] mb-8"></div>
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -185,7 +185,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:border-white/30 transition-all"
+                className="w-10 h-10 rounded-lg bg-black border border-[#333333] flex items-center justify-center text-white/70 hover:text-white hover:border-white transition-all"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={social.label}
@@ -210,7 +210,7 @@ export function Footer() {
         </div>
 
         {/* Certifications & Trust Badges */}
-        <div className="mt-8 pt-8 border-t border-white/10">
+        <div className="mt-8 pt-8 border-t border-[#333333]">
           <div className="flex flex-wrap justify-center items-center gap-8 text-white/40 text-sm">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-white"></div>

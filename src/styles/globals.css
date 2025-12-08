@@ -37,7 +37,12 @@
     font-family: 'Inter', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
@@ -50,10 +55,8 @@
 
 @layer utilities {
   .glass-effect {
-    background: rgba(26, 26, 26, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(30, 144, 255, 0.2);
+    background: #0A0A0A;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .neon-glow {

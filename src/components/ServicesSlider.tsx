@@ -139,14 +139,14 @@ export function ServicesSlider() {
                   <GlassCard delay={0}>
                     <div className="h-full flex flex-col">
                       <motion.div
-                        className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-4"
+                        className="w-14 h-14 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                         whileHover={{
                           rotate: [0, -10, 10, 0],
                           scale: 1.1
                         }}
                         transition={{ duration: 0.5 }}
                       >
-                        <service.icon className="w-7 h-7 text-black" />
+                        <service.icon className="w-7 h-7 text-white" />
                       </motion.div>
 
                       <h3 className="text-white mb-3">{service.title}</h3>
@@ -177,11 +177,10 @@ export function ServicesSlider() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentIndex
+                className={`w-2 h-2 rounded-full transition-all ${index === currentIndex
                     ? 'bg-[#ffffff] w-8'
                     : 'bg-white/20 hover:bg-white/40'
-                }`}
+                  }`}
               />
             ))}
           </div>

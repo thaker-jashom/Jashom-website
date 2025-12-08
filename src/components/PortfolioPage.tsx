@@ -39,22 +39,7 @@ export function PortfolioPage() {
       tags: ['Project Management', 'Real-time Collaboration', 'Resource Management', 'Analytics Dashboard'],
       link: 'https://jay.jashom.com/projects/projectsphere'
     },
-    {
-      title: 'SalesHandy Optimization - Sales Automation Platform',
-      client: 'Jay Dave',
-      industry: 'SaaS',
-      category: 'SaaS Platforms',
-      challenge: 'Sales teams struggle with manual processes, slow lead response times, and lack of automation tools to scale their operations effectively.',
-      solution: 'SalesHandy Optimization provides intelligent sales automation with CRM integration, email marketing automation, and lead management to streamline sales processes.',
-      impact: [
-        '40% improvement in conversion rates',
-        '60% faster sales efficiency',
-        'Sub-5-minute lead response times',
-        'Intelligent sales automation'
-      ],
-      tags: ['Sales Automation', 'CRM Integration', 'Email Marketing', 'Lead Management'],
-      link: 'https://jay.jashom.com/projects/saleshandy-optimization'
-    },
+
     {
       title: 'EcoComply Chatbot - Compliance Automation',
       client: 'Jay Dave',
@@ -472,7 +457,7 @@ export function PortfolioPage() {
             </p>
             <a
               href="/contact"
-              className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300 hover:scale-105"
+              className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white transition-all duration-300 hover:bg-white hover:text-black scale-100 hover:scale-105"
             >
               Start Your Project
             </a>

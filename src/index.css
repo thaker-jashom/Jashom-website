@@ -71,8 +71,8 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --font-display: "Space Grotesk", sans-serif;
 
-    --color-black: #0a0a0a;
-    --color-white: #ededed;
+    --color-black: #000000;
+    --color-white: #ffffff;
 
     --spacing: .25rem;
     --container-sm: 24rem;
@@ -395,10 +395,10 @@
   }
 
   :root {
-    --background: 0 0% 4%;
-    /* #0a0a0a */
-    --foreground: 0 0% 93%;
-    /* #ededed */
+    --background: 0 0% 0%;
+    /* #000000 */
+    --foreground: 0 0% 100%;
+    /* #ffffff */
     --card: 0 0% 4%;
     --card-foreground: 0 0% 93%;
     --popover: 0 0% 4%;
@@ -426,8 +426,8 @@
   }
 
   body {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: #000000 !important;
+    color: #ffffff !important;
     font-family: "Inter", sans-serif;
   }
 
@@ -1754,23 +1754,23 @@
   }
 
   .glass-effect {
-    -webkit-backdrop-filter: blur(12px);
-    background: #0a0a0acc;
-    border: 1px solid #ffffff1a;
+    background: #000000;
+    border: 1px solid #333333;
   }
 
   .neon-glow {
-    box-shadow: 0 0 20px #ffffff1a;
+    box-shadow: none;
+    border: 1px solid #ffffff;
   }
 
   .neon-glow-hover:hover {
-    box-shadow: 0 0 30px #ffffff33;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.03);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #ededed 0%, #9ca3af 100%);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
   }
 
   .border-gradient {

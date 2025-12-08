@@ -269,14 +269,14 @@ export function ServicesPage() {
               <GlassCard className="h-full">
                 <div className="flex flex-col h-full">
                   <motion.div
-                    className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4`}
+                    className="w-16 h-16 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                     whileHover={{
                       rotate: [0, -10, 10, 0],
                       scale: 1.1
                     }}
                     transition={{ duration: 0.5 }}
                   >
-                    <service.icon className="w-8 h-8 text-black" />
+                    <service.icon className="w-8 h-8 text-white" />
                   </motion.div>
 
                   <h3 className="text-white mb-2">{service.title}</h3>
@@ -351,14 +351,14 @@ export function ServicesPage() {
                 <GlassCard className="h-full">
                   <div className="flex flex-col h-full">
                     <motion.div
-                      className={`w-16 h-16 rounded-xl bg-gradient-to-br ${capability.color} flex items-center justify-center mb-4`}
+                      className="w-16 h-16 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                       whileHover={{
                         rotate: 360,
                         scale: 1.1
                       }}
                       transition={{ type: "spring", stiffness: 200 }}
                     >
-                      <capability.icon className="w-8 h-8 text-black" />
+                      <capability.icon className="w-8 h-8 text-white" />
                     </motion.div>
                     <h3 className="mb-3 text-white">{capability.title}</h3>
                     <p className="text-white/70 mb-6">{capability.description}</p>
@@ -454,8 +454,8 @@ export function ServicesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="glass-effect rounded-2xl p-12 border border-[#ffffff]/30 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff]/10 to-[#d1d5db]/10 pointer-events-none" />
+          <div className="glass-effect rounded-2xl p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-transparent pointer-events-none" />
 
             <div className="relative z-10">
               <h2 className="mb-4 text-gradient">Ready to Transform Your Business?</h2>
@@ -465,14 +465,14 @@ export function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black border border-white text-white transition-all duration-300 hover:bg-white hover:text-black font-medium"
                 >
                   <span>Get Started</span>
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
                   href="/portfolio"
-                  className="inline-block px-8 py-4 rounded-xl bg-white/5 border border-[#ffffff]/30 text-white hover:bg-white/10 transition-all duration-300"
+                  className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
                 >
                   View Case Studies
                 </a>
