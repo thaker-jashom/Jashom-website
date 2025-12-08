@@ -397,14 +397,14 @@ export function BrochurePage() {
                 {slide.type === 'cover' && (
                   <div className="flex flex-col items-center justify-center h-full text-center">
                     <motion.div
-                      className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-8"
+                      className="w-24 h-24 rounded-2xl bg-[#111] border border-white/10 flex items-center justify-center mb-8"
                       animate={{
                         rotate: [0, 5, -5, 0],
                         scale: [1, 1.05, 1]
                       }}
                       transition={{ duration: 4, repeat: Infinity }}
                     >
-                      <Cpu className="w-12 h-12 text-black" />
+                      <Cpu className="w-12 h-12 text-white" />
                     </motion.div>
                     <h1 className="text-6xl mb-4 text-gradient">{slide.title}</h1>
                     <p className="text-4xl text-[#d1d5db] mb-4">{slide.subtitle}</p>
@@ -461,8 +461,8 @@ export function BrochurePage() {
                           className="glass-effect rounded-xl p-6 border border-[#ffffff]/20 hover:border-[#d1d5db]/50 transition-all flex flex-col items-center text-center"
                           whileHover={{ scale: 1.05, y: -5 }}
                         >
-                          <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4`}>
-                            <service.icon className="w-8 h-8 text-black" />
+                          <div className={`w-16 h-16 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4`}>
+                            <service.icon className="w-8 h-8 text-white" />
                           </div>
                           <h3 className="text-white text-sm">{service.name}</h3>
                         </motion.div>
@@ -510,8 +510,8 @@ export function BrochurePage() {
                     <div className="flex-grow grid grid-cols-3 gap-4">
                       {slide.capabilities.slice(0, 3).map((cap: any, idx: number) => (
                         <div key={idx} className="glass-effect rounded-xl p-4 border border-[#ffffff]/20">
-                          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-3">
-                            <cap.icon className="w-6 h-6 text-black" />
+                          <div className="w-12 h-12 rounded-lg bg-[#111] border border-white/10 flex items-center justify-center mb-3">
+                            <cap.icon className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-white mb-2 text-sm">{cap.name}</h3>
                           <div className="space-y-1">
@@ -526,8 +526,8 @@ export function BrochurePage() {
                     <div className="grid grid-cols-2 gap-4 mt-4">
                       {slide.capabilities.slice(3).map((cap: any, idx: number) => (
                         <div key={idx} className="glass-effect rounded-xl p-4 border border-[#ffffff]/20">
-                          <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#d1d5db] to-[#ffffff] flex items-center justify-center mb-3">
-                            <cap.icon className="w-6 h-6 text-black" />
+                          <div className="w-12 h-12 rounded-lg bg-[#111] border border-white/10 flex items-center justify-center mb-3">
+                            <cap.icon className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-white mb-2 text-sm">{cap.name}</h3>
                           <div className="space-y-1">
@@ -555,8 +555,8 @@ export function BrochurePage() {
                       <div className="space-y-6">
                         <div className="glass-effect rounded-xl p-6 border border-[#ffffff]/30">
                           <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center">
-                              <RefreshCw className="w-6 h-6 text-black" />
+                            <div className="w-12 h-12 rounded-lg bg-[#111] border border-white/10 flex items-center justify-center">
+                              <RefreshCw className="w-6 h-6 text-white" />
                             </div>
                             <h3 className="text-white text-xl">{slide.content.methodology.title}</h3>
                           </div>
@@ -629,8 +629,8 @@ export function BrochurePage() {
                           className="glass-effect rounded-xl p-6 border border-[#ffffff]/20 hover:border-[#d1d5db]/50 transition-all text-center"
                           whileHover={{ scale: 1.05 }}
                         >
-                          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mx-auto mb-3">
-                            <reason.icon className="w-7 h-7 text-black" />
+                          <div className="w-14 h-14 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mx-auto mb-3">
+                            <reason.icon className="w-7 h-7 text-white" />
                           </div>
                           <h3 className="text-white mb-2">{reason.title}</h3>
                           <p className="text-white/60 text-sm">{reason.desc}</p>
@@ -690,7 +690,7 @@ export function BrochurePage() {
 
                     <motion.a
                       href="/contact"
-                      className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black text-lg"
+                      className="inline-block px-10 py-4 rounded-xl bg-black border border-white text-white text-lg transition-all duration-300 hover:bg-white hover:text-black"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -720,8 +720,8 @@ export function BrochurePage() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all ${index === currentSlide
-                  ? 'bg-[#ffffff] w-8'
-                  : 'bg-white/20 w-2 hover:bg-white/40'
+                ? 'bg-[#ffffff] w-8'
+                : 'bg-white/20 w-2 hover:bg-white/40'
                 }`}
             />
           ))}
@@ -734,8 +734,8 @@ export function BrochurePage() {
               key={s.id}
               onClick={() => goToSlide(index)}
               className={`aspect-video rounded-lg border-2 overflow-hidden transition-all ${index === currentSlide
-                  ? 'border-[#ffffff] scale-105'
-                  : 'border-white/10 hover:border-[#ffffff]/50'
+                ? 'border-[#ffffff] scale-105'
+                : 'border-white/10 hover:border-[#ffffff]/50'
                 }`}
               whileHover={{ scale: index === currentSlide ? 1.05 : 1.05 }}
             >
@@ -767,6 +767,6 @@ export function BrochurePage() {
           }
         }
       `}</style>
-    </div>
+    </div >
   );
 }

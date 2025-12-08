@@ -82,7 +82,7 @@ export function Navigation() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#333333]"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -137,16 +137,18 @@ export function Navigation() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-2 w-64 glass-effect rounded-xl border border-white/10 overflow-hidden max-h-[80vh] overflow-y-auto"
+                          className={`absolute top-full left-0 mt-2 glass-effect rounded-xl border border-white/10 overflow-hidden max-h-[80vh] overflow-y-auto ${item.label === 'About Us' ? 'w-48 p-2 flex flex-col gap-2' : 'w-64'
+                            }`}
                         >
                           {item.dropdown.map((subItem, subIndex) => (
                             <Link
                               key={subItem.path}
                               to={subItem.path}
                               onClick={handleLinkClick}
-                              className={`block px-4 py-3 transition-colors ${location.pathname === subItem.path
-                                ? 'text-white bg-white/10'
-                                : 'text-white hover:text-gray-300 hover:bg-white/5'
+                              className={`block transition-colors ${item.label === 'About Us' ? 'px-4 py-2 rounded-lg' : 'px-4 py-3'
+                                } ${location.pathname === subItem.path
+                                  ? 'text-white bg-white/10'
+                                  : 'text-white hover:bg-white/10 hover:text-white'
                                 }`}
                             >
                               {subItem.label}
@@ -244,7 +246,7 @@ export function Navigation() {
                             onClick={handleLinkClick}
                             className={`block py-2 px-6 rounded-lg transition-all ${location.pathname === subItem.path
                               ? 'text-white bg-white/10'
-                              : 'text-white hover:text-gray-300 hover:bg-white/5'
+                              : 'text-white hover:bg-white/10 hover:text-white'
                               }`}
                           >
                             {subItem.label}
@@ -257,7 +259,7 @@ export function Navigation() {
                         onClick={handleLinkClick}
                         className={`block py-2 px-4 rounded-lg transition-all ${location.pathname === item.path
                           ? 'text-white bg-white/10'
-                          : 'text-white hover:text-gray-300 hover:bg-white/5'
+                          : 'text-white hover:bg-white/10 hover:text-white'
                           }`}
                       >
                         {item.label}

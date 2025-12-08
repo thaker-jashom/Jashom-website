@@ -69,8 +69,8 @@ export function HomePage() {
         >
           <div className="absolute inset-0" style={{
             backgroundImage: `
-              linear-gradient(rgba(30, 144, 255, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(30, 144, 255, 0.05) 1px, transparent 1px)
+              linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px'
           }} />
@@ -147,10 +147,16 @@ export function HomePage() {
             >
               <MagneticButton
                 href="/contact"
-                className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300"
+                className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
               >
                 Request a Demo
               </MagneticButton>
+              <Link
+                to="/contact"
+                className="inline-block ml-4 px-8 py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Get in Touch
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -175,6 +181,15 @@ export function HomePage() {
 
       {/* Services Slider */}
       <ServicesSlider />
+
+      <div className="flex justify-center pb-20">
+        <Link
+          to="/contact"
+          className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 font-medium"
+        >
+          Schedule a Call
+        </Link>
+      </div>
 
       <CircuitDivider />
 
@@ -221,14 +236,14 @@ export function HomePage() {
                 <GlassCard delay={0}>
                   <div className="flex flex-col items-center text-center">
                     <motion.div
-                      className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-4"
+                      className="w-16 h-16 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                       whileHover={{
                         rotate: [0, -10, 10, 0],
                         scale: 1.1
                       }}
                       transition={{ duration: 0.5 }}
                     >
-                      <feature.icon className="w-8 h-8 text-black" />
+                      <feature.icon className="w-8 h-8 text-white" />
                     </motion.div>
                     <h3 className="mb-3 text-white">{feature.title}</h3>
                     <p className="text-white/70">{feature.description}</p>
@@ -298,7 +313,7 @@ export function HomePage() {
                 whileHover={{
                   y: -8,
                   scale: 1.1,
-                  boxShadow: "0 10px 30px rgba(0, 255, 255, 0.2)"
+                  boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)"
                 }}
               >
                 <div className="text-white/80 group-hover:text-white transition-colors">{tech}</div>
@@ -369,14 +384,14 @@ export function HomePage() {
                     {phase.step}
                   </motion.div>
                   <motion.div
-                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-4"
+                    className="w-12 h-12 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                     whileHover={{
                       rotate: 360,
                       scale: 1.2
                     }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
-                    <phase.icon className="w-6 h-6 text-black" />
+                    <phase.icon className="w-6 h-6 text-white" />
                   </motion.div>
                   <h3 className="text-white mb-3">{phase.title}</h3>
                   <p className="text-white/70 text-sm">{phase.description}</p>
@@ -540,15 +555,15 @@ export function HomePage() {
                     scale: 1.05,
                     x: 10,
                     borderColor: 'rgba(0, 255, 255, 0.5)',
-                    boxShadow: "0 10px 40px rgba(30, 144, 255, 0.3)"
+                    boxShadow: "0 10px 40px rgba(255, 255, 255, 0.1)"
                   }}
                 >
                   <motion.div
-                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center flex-shrink-0"
+                    className="w-14 h-14 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center flex-shrink-0"
                     whileHover={{ rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 0.5 }}
                   >
-                    <metric.icon className="w-7 h-7 text-black" />
+                    <metric.icon className="w-7 h-7 text-white" />
                   </motion.div>
                   <div>
                     <div className="text-white/60 text-sm group-hover:text-white/80 transition-colors">{metric.label}</div>
@@ -584,7 +599,7 @@ export function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/contact"
-                  className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300 hover:scale-105"
+                  className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 hover:scale-105"
                 >
                   Request a Demo
                 </Link>

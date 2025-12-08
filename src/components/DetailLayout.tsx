@@ -60,7 +60,7 @@ export function DetailLayout({
             viewport={{ once: true }}
           >
             <GlassCard className="h-full">
-              <h2 className="text-2xl text-white mb-6 border-b border-white/10 pb-4">
+              <h2 className="text-2xl text-white mb-6 border-b border-[#333333] pb-4">
                 {type === 'Service' ? 'What We Offer' : 'We Solve'}
               </h2>
               <div className="space-y-4">
@@ -88,7 +88,7 @@ export function DetailLayout({
             viewport={{ once: true }}
           >
             <GlassCard className="h-full">
-              <h2 className="text-2xl text-white mb-6 border-b border-white/10 pb-4">
+              <h2 className="text-2xl text-white mb-6 border-b border-[#333333] pb-4">
                 {benefitsTitle}
               </h2>
               <div className="space-y-4">
@@ -121,8 +121,8 @@ export function DetailLayout({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="glass-effect rounded-2xl p-12 border border-[#ffffff]/30 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff]/10 to-[#d1d5db]/10 pointer-events-none" />
+          <div className="glass-effect rounded-2xl p-12 relative overflow-hidden">
+            <div className="absolute inset-0 bg-transparent pointer-events-none" />
 
             <div className="relative z-10">
               <h2 className="mb-4 text-gradient">Ready to Get Started?</h2>
@@ -132,7 +132,7 @@ export function DetailLayout({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300 hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black transition-all duration-300 hover:scale-105 font-medium"
                 >
                   <span>Contact Us</span>
                   <ArrowRight className="w-5 h-5" />

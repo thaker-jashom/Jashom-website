@@ -43,8 +43,8 @@ export function ContactPage() {
     <div className="min-h-screen bg-black pt-24 pb-20">
       <SEO
         title="Contact Jashom | Request AI Demo & Consultation | Get Started"
-        description="Transform your business with AI. Contact Jashom for a free consultation. Available 24/7 with offices in Silicon Valley. Email: contact@neoteq.ai | Phone: +1 (555) 123-4567"
-        keywords="contact AI company, AI consultation, request AI demo, AI consultation Silicon Valley, GPU optimization contact, enterprise AI inquiry"
+        description="Transform your business with AI. Contact Jashom for a free consultation. Available 24/7. Email: info@jashom.com | Phone: +91 90239 06363"
+        keywords="contact AI company, AI consultation, request AI demo, AI consultation Gujarat India, GPU optimization contact, enterprise AI inquiry"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -85,8 +85,8 @@ export function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-8 h-8 text-black" />
+                  <div className="w-16 h-16 rounded-full bg-[#111] border border-white/10 flex items-center justify-center mx-auto mb-4">
+                    <Send className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-[#d1d5db] mb-2">Message Sent!</h3>
                   <p className="text-white/70">We'll get back to you within 24 hours.</p>
@@ -176,7 +176,7 @@ export function ContactPage() {
 
                   <motion.button
                     type="submit"
-                    className="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300"
+                    className="w-full px-8 py-4 rounded-xl bg-black border border-white text-white transition-all duration-300 hover:bg-white hover:text-black"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -199,38 +199,38 @@ export function ContactPage() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="text-white/80 mb-1">Email</div>
-                    <a href="mailto:contact@neoteq.ai" className="text-[#d1d5db] hover:text-white transition-colors">
-                      contact@neoteq.ai
+                    <a href="mailto:info@jashom.com" className="text-[#d1d5db] hover:text-white transition-colors">
+                      info@jashom.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="text-white/80 mb-1">Phone</div>
-                    <a href="tel:+15551234567" className="text-[#d1d5db] hover:text-white transition-colors">
-                      +1 (555) 123-4567
+                    <a href="tel:+919023906363" className="text-[#d1d5db] hover:text-white transition-colors">
+                      +91 90239 06363
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-black" />
+                  <div className="w-12 h-12 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="text-white/80 mb-1">Location</div>
                     <div className="text-white/90">
-                      Silicon Valley, CA<br />
-                      San Francisco Bay Area
+                      414, Satyam-2, Amba Business Park,<br />
+                      ATPL, Adalaj, Gujarat, India
                     </div>
                   </div>
                 </div>

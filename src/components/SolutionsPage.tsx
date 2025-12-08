@@ -124,14 +124,14 @@ export function SolutionsPage() {
               <GlassCard delay={0}>
                 <div className="flex flex-col h-full">
                   <motion.div
-                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#ffffff] to-[#d1d5db] flex items-center justify-center mb-4"
+                    className="w-14 h-14 rounded-xl bg-[#111] border border-white/10 flex items-center justify-center mb-4"
                     whileHover={{
                       rotate: [0, -10, 10, -10, 0],
                       scale: 1.15
                     }}
                     transition={{ duration: 0.6 }}
                   >
-                    <solution.icon className="w-7 h-7 text-black" />
+                    <solution.icon className="w-7 h-7 text-white" />
                   </motion.div>
                   <h3 className="mb-3 text-white">{solution.title}</h3>
                   <p className="text-white/70 mb-6 flex-grow">{solution.description}</p>
@@ -194,7 +194,7 @@ export function SolutionsPage() {
               </p>
               <MagneticButton
                 href="/contact"
-                className="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-[#ffffff] to-[#d1d5db] text-black neon-glow-hover transition-all duration-300"
+                className="inline-block px-8 py-4 rounded-xl bg-black border border-white text-white transition-all duration-300 hover:bg-white hover:text-black"
               >
                 Schedule Consultation
               </MagneticButton>
