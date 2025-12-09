@@ -3,7 +3,7 @@ import { DetailLayout } from '../DetailLayout';
 export function CyberSecurityPage() {
     return (
         <DetailLayout
-            title="Cyber Security"
+            title="Cybersecurity"
             description="Protect your digital assets with advanced security solutions tailored for modern infrastructures."
             whatWeOffer={[
                 "Threat detection & monitoring",

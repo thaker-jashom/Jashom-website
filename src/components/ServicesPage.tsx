@@ -134,7 +134,7 @@ export function ServicesPage() {
     },
     {
       icon: CheckCircle2,
-      title: 'Cyber Security',
+      title: 'Cybersecurity',
       tagline: 'Protect your digital assets with advanced security solutions',
       description: 'Protect your digital assets with advanced security solutions tailored for modern infrastructures.',
       deliverables: [

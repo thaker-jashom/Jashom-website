@@ -18,6 +18,7 @@ import { AIGPUOptimizationPage } from './components/services/AIGPUOptimizationPa
 import { RAGApplicationsPage } from './components/services/RAGApplicationsPage';
 import { DevOpsCloudPage } from './components/services/DevOpsCloudPage';
 import { DevSecOpsPage } from './components/services/DevSecOpsPage';
+import { DevOpsDevSecOpsPage } from './components/services/DevOpsDevSecOpsPage';
 import { VAPTPage } from './components/services/VAPTPage';
 import { ProductEngineeringPage } from './components/services/ProductEngineeringPage';
 import { StaffAugmentationPage } from './components/services/StaffAugmentationPage';
@@ -61,6 +62,7 @@ function AnimatedRoutes() {
         <Route path="/services/ai-gpu-optimization" element={<PageTransition><AIGPUOptimizationPage /></PageTransition>} />
         <Route path="/services/rag-applications" element={<PageTransition><RAGApplicationsPage /></PageTransition>} />
         <Route path="/services/devops-cloud" element={<PageTransition><DevOpsCloudPage /></PageTransition>} />
+        <Route path="/services/devops-devsecops" element={<PageTransition><DevOpsDevSecOpsPage /></PageTransition>} />
         <Route path="/services/devsecops" element={<PageTransition><DevSecOpsPage /></PageTransition>} />
         <Route path="/services/vapt" element={<PageTransition><VAPTPage /></PageTransition>} />
         <Route path="/services/product-engineering" element={<PageTransition><ProductEngineeringPage /></PageTransition>} />

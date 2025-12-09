@@ -21,7 +21,8 @@ export function PortfolioPage() {
         'Scalable SaaS architecture serving thousands of users'
       ],
       tags: ['SaaS Platform', 'Referral Management', 'Analytics', 'Automation'],
-      link: 'https://jay.jashom.com/projects/boostreferral'
+      link: 'https://jay.jashom.com/projects/boostreferral',
+      liveUrl: 'https://www.boostreferral.com'
     },
     {
       title: 'ProjectSphere - Project Management Platform',

@@ -47,10 +47,9 @@ export function Navigation() {
       dropdown: [
         { path: '/services/ai-gpu-optimization', label: 'AI GPU Optimization & Attestation' },
         { path: '/services/rag-applications', label: 'RAG Applications' },
-        { path: '/services/devops-cloud', label: 'DevOps' },
-        { path: '/services/devsecops', label: 'DevSecOps' },
+        { path: '/services/devops-devsecops', label: 'DevOps & DevSecOps' },
         { path: '/services/devops-cloud', label: 'Cloud Computing' },
-        { path: '/services/cyber-security', label: 'Cyber Security' },
+        { path: '/services/cyber-security', label: 'Cybersecurity' },
         { path: '/services/product-engineering', label: 'Product Engineering' },
         { path: '/services/staff-augmentation', label: 'Staff Augmentation' },
         { path: '/services/ai-agentic-systems', label: 'AI Agentic Systems' },
