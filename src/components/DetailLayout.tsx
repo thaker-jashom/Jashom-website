@@ -124,7 +124,7 @@ export function DetailLayout({
             <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
               Let's discuss how our services and expertise can address your specific business challenges and unlock new opportunities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <a
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-transparent text-white hover:bg-white/10 transition-all duration-300"

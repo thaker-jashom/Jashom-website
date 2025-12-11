@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const menuVariants = {
   closed: {
@@ -43,6 +43,18 @@ export function Navigation() {
       ]
     },
     { path: '/services', label: 'Services' },
+    {
+      label: 'AI for Industry',
+      dropdown: [
+        { path: '/ai-for-industry', label: 'Overview' },
+        { path: '/ai-for-industry/sales', label: 'AI for Sales' },
+        { path: '/ai-for-industry/legal', label: 'AI for Legal' },
+        { path: '/ai-for-industry/accounting', label: 'AI for Accounting' },
+        { path: '/ai-for-industry/healthcare', label: 'AI for Healthcare' },
+        { path: '/ai-for-industry/marketing', label: 'AI for Marketing' },
+        { path: '/ai-for-industry/rnd', label: 'AI for R&D' }
+      ]
+    },
     {
       label: 'Solutions',
       dropdown: [

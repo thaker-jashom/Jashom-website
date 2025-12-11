@@ -31,6 +31,13 @@ import { RetailTechPage } from './components/solutions/RetailTechPage';
 import { SupplyChainPage } from './components/solutions/SupplyChainPage';
 import { FinTechPage } from './components/solutions/FinTechPage';
 import { LegalTaxPage } from './components/solutions/LegalTaxPage';
+import { AIForIndustryPage } from './components/industry/AIForIndustryPage';
+import { AIForSalesPage } from './components/industry/AIForSalesPage';
+import { AIForLegalPage } from './components/industry/AIForLegalPage';
+import { AIForAccountingPage } from './components/industry/AIForAccountingPage';
+import { AIForHealthcarePage } from './components/industry/AIForHealthcarePage';
+import { AIForMarketingPage } from './components/industry/AIForMarketingPage';
+import { AIForRnDPage } from './components/industry/AIForRnDPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -79,6 +86,14 @@ function AnimatedRoutes() {
         <Route path="/solutions/fintech" element={<PageTransition><FinTechPage /></PageTransition>} />
         <Route path="/solutions/legal-and-tax" element={<PageTransition><LegalTaxPage /></PageTransition>} />
 
+        {/* AI for Industry Routes */}
+        <Route path="/ai-for-industry" element={<PageTransition><AIForIndustryPage /></PageTransition>} />
+        <Route path="/ai-for-industry/sales" element={<PageTransition><AIForSalesPage /></PageTransition>} />
+        <Route path="/ai-for-industry/legal" element={<PageTransition><AIForLegalPage /></PageTransition>} />
+        <Route path="/ai-for-industry/accounting" element={<PageTransition><AIForAccountingPage /></PageTransition>} />
+        <Route path="/ai-for-industry/healthcare" element={<PageTransition><AIForHealthcarePage /></PageTransition>} />
+        <Route path="/ai-for-industry/marketing" element={<PageTransition><AIForMarketingPage /></PageTransition>} />
+        <Route path="/ai-for-industry/rnd" element={<PageTransition><AIForRnDPage /></PageTransition>} />
 
         {/* Placeholder routes */}
         <Route path="/about" element={<PageTransition><PlaceholderPage title="About Us" description="Learn more about Jashom's mission, vision, and the team driving AI innovation across industries." /></PageTransition>} />
