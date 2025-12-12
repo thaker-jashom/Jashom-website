@@ -17,7 +17,7 @@ export function Footer() {
       { label: 'AI Agentic Systems', path: '/services/ai-agentic-systems' },
       { label: 'Cybersecurity', path: '/services/cyber-security' },
       { label: 'DevOps & DevSecOps', path: '/services/devops-devsecops' },
-      { label: 'Cloud Computing', path: '/services/cloud-computing' },
+      { label: 'Cloud Computing', path: '/services/devops-cloud' },
       { label: 'Product Engineering', path: '/services/product-engineering' }
     ],
     solutions: [

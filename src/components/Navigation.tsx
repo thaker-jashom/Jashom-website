@@ -1,7 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 const menuVariants = {
   closed: {
@@ -32,6 +32,24 @@ export function Navigation() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Services dropdown items for mobile only
+  const servicesDropdown = [
+    { path: '/services/ai-gpu-optimization', label: 'AI GPU Optimization & Attestation' },
+    { path: '/services/rag-applications', label: 'RAG Applications' },
+    { path: '/services/ai-agentic-systems', label: 'AI Agentic Systems' },
+    { path: '/services/ai-automation', label: 'AI Integration & Workflow Automation' },
+    { path: '/services/cyber-security', label: 'Cybersecurity' },
+    { path: '/services/vapt', label: 'VAPT' },
+    { path: '/services/compliance-risk', label: 'Compliance & Risk' },
+    { path: '/services/devops-devsecops', label: 'DevOps & DevSecOps' },
+    { path: '/services/devops-cloud', label: 'Cloud Computing' },
+    { path: '/services/edge-computing', label: 'Edge Computing' },
+    { path: '/services/cicd-automation', label: 'CI/CD Automation' },
+    { path: '/services/product-engineering', label: 'Product Engineering' },
+    { path: '/services/custom-development', label: 'Custom Development' },
+    { path: '/services/micro-saas', label: 'Micro-SaaS Development' }
+  ];
 
   const navItems = [
     { path: '/', label: 'Home' },

@@ -24,7 +24,6 @@ import { DevOpsCloudPage } from './components/services/DevOpsCloudPage';
 import { DevOpsDevSecOpsPage } from './components/services/DevOpsDevSecOpsPage';
 import { VAPTPage } from './components/services/VAPTPage';
 import { ProductEngineeringPage } from './components/services/ProductEngineeringPage';
-import { StaffAugmentationPage } from './components/services/StaffAugmentationPage';
 import { AIAgenticPage } from './components/services/AIAgenticPage';
 import { CustomDevelopmentPage } from './components/services/CustomDevelopmentPage';
 import { CyberSecurityPage } from './components/services/CyberSecurityPage';
@@ -90,8 +89,6 @@ function AnimatedRoutes() {
         <Route path="/services/cicd-automation" element={<PageTransition><CICDAutomationPage /></PageTransition>} />
         <Route path="/services/compliance-risk" element={<PageTransition><ComplianceRiskPage /></PageTransition>} />
         <Route path="/services/micro-saas" element={<PageTransition><MicroSaaSPage /></PageTransition>} />
-        <Route path="/services/cloud-computing" element={<PageTransition><DevOpsCloudPage /></PageTransition>} />
-        <Route path="/services/devops" element={<PageTransition><DevOpsCloudPage /></PageTransition>} />
 
         {/* Solution Routes */}
         <Route path="/solutions/healthtech" element={<PageTransition><HealthTechPage /></PageTransition>} />

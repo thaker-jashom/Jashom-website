@@ -66,16 +66,17 @@ export function ServicesPage() {
 
         <CircuitDivider />
 
-        {/* Services Grid - 3 Column Layout */}
+        {/* Services Grid - Side by Side Layout */}
         <section className="py-12 sm:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-24">
-            {/* Column 1: AI Services & Cybersecurity */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
+            {/* Left Column: AI Services & Cybersecurity */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="space-y-12 sm:space-y-16 lg:space-y-20"
+              className="space-y-16 sm:space-y-20 lg:space-y-24"
             >
+              {/* AI Services Section */}
               <div>
                 <h2 className="text-white text-xl sm:text-2xl font-bold mb-6 sm:mb-10">AI Services</h2>
                 <div className="space-y-3 sm:space-y-5">
@@ -93,7 +94,9 @@ export function ServicesPage() {
                   ))}
                 </div>
               </div>
-              <div className="pt-6 sm:pt-8">
+
+              {/* Cybersecurity Section */}
+              <div>
                 <h2 className="text-white text-xl sm:text-2xl font-bold mb-6 sm:mb-10">Cybersecurity</h2>
                 <div className="space-y-3 sm:space-y-5">
                   {securityServices.map((service, index) => (
@@ -112,13 +115,14 @@ export function ServicesPage() {
               </div>
             </motion.div>
 
-            {/* Column 2: Cloud & DevOps Engineering & Product Engineering */}
+            {/* Right Column: Cloud & DevOps Engineering & Product Engineering */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-12 sm:space-y-16 lg:space-y-20"
+              className="space-y-16 sm:space-y-20 lg:space-y-24"
             >
+              {/* Cloud & DevOps Engineering Section */}
               <div>
                 <h2 className="text-white text-xl sm:text-2xl font-bold mb-6 sm:mb-10">Cloud & DevOps Engineering</h2>
                 <div className="space-y-3 sm:space-y-5">
@@ -127,7 +131,7 @@ export function ServicesPage() {
                       key={index}
                       href={service.path}
                       className="block text-white/80 hover:text-white transition-colors text-base sm:text-lg py-2 sm:py-3 break-words"
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + index * 0.05 }}
                     >
@@ -136,7 +140,9 @@ export function ServicesPage() {
                   ))}
                 </div>
               </div>
-              <div className="pt-6 sm:pt-8">
+
+              {/* Product Engineering Section */}
+              <div>
                 <h2 className="text-white text-xl sm:text-2xl font-bold mb-6 sm:mb-10">Product Engineering</h2>
                 <div className="space-y-3 sm:space-y-5">
                   {productServices.map((service, index) => (
@@ -144,7 +150,7 @@ export function ServicesPage() {
                       key={index}
                       href={service.path}
                       className="block text-white/80 hover:text-white transition-colors text-base sm:text-lg py-2 sm:py-3 break-words"
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.2 + (cloudDevOpsServices.length + index) * 0.05 }}
                     >
