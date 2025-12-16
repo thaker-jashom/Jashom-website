@@ -26,7 +26,7 @@ export function Footer() {
       { label: 'FinTech', path: '/solutions/fintech' },
       { label: 'EnvironmentTech', path: '/solutions/environmenttech' },
       { label: 'Legal & Tax', path: '/solutions/legal-and-tax' },
-      { label: 'Retail Tech', path: '/solutions/retail-tech' },
+      { label: 'RetailTech', path: '/solutions/retail-tech' },
       { label: 'FoodTech', path: '/solutions/foodtech' }
     ],
     resources: [

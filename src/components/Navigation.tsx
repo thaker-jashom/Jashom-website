@@ -12,39 +12,62 @@ export function Navigation() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  // Services dropdown items for mobile only
-  const servicesDropdown = [
-    { path: '/services/ai-gpu-optimization', label: 'AI GPU Optimization & Attestation' },
-    { path: '/services/rag-applications', label: 'RAG Applications' },
-    { path: '/services/ai-agentic-systems', label: 'AI Agentic Systems' },
-    { path: '/services/ai-automation', label: 'AI Integration & Workflow Automation' },
-    { path: '/services/cyber-security', label: 'Cybersecurity' },
-    { path: '/services/vapt', label: 'VAPT' },
-    { path: '/services/compliance-risk', label: 'Compliance & Risk' },
-    { path: '/services/devops-devsecops', label: 'DevOps & DevSecOps' },
-    { path: '/services/devops-cloud', label: 'Cloud Computing' },
-    { path: '/services/edge-computing', label: 'Edge Computing' },
-    { path: '/services/cicd-automation', label: 'CI/CD Automation' },
-    { path: '/services/product-engineering', label: 'Product Engineering' },
-    { path: '/services/custom-development', label: 'Custom Development' },
-    { path: '/services/micro-saas', label: 'Micro-SaaS Development' }
-  ];
+  const [clickedServiceCategory, setClickedServiceCategory] = useState<string | null>(null);
+  const [openSubMenus, setOpenSubMenus] = useState<{ [key: string]: boolean }>({});
 
   const navItems = [
     { path: '/', label: 'Home' },
     {
       label: 'About Us',
       dropdown: [
-        { path: '/blog', label: 'Blog' },
-        { path: '/careers', label: 'Career' }
+        { path: '/about/team', label: 'Team' },
+        { path: '/about/portfolio', label: 'Portfolio' },
+        { path: '/about/blog', label: 'Blog' },
+        { path: '/about/career', label: 'Career' }
       ]
     },
-    { path: '/services', label: 'Services' },
+    {
+      label: 'Services',
+      dropdown: [
+        {
+          label: 'AI Services',
+          subItems: [
+            { path: '/services/ai-gpu-optimization', label: 'AI GPU Optimization & Attestation' },
+            { path: '/services/rag-applications', label: 'RAG Applications' },
+            { path: '/services/ai-agentic-systems', label: 'AI Agentic Systems' },
+            { path: '/services/ai-automation', label: 'AI Integration & Workflow Automation' }
+          ]
+        },
+        {
+          label: 'Cybersecurity',
+          subItems: [
+            { path: '/services/cyber-security', label: 'Cybersecurity' },
+            { path: '/services/vapt', label: 'VAPT' },
+            { path: '/services/compliance-risk', label: 'Compliance & Risk' }
+          ]
+        },
+        {
+          label: 'Cloud & DevOps Engineering',
+          subItems: [
+            { path: '/services/devops-devsecops', label: 'DevOps & DevSecOps' },
+            { path: '/services/devops-cloud', label: 'Cloud Computing' },
+            { path: '/services/edge-computing', label: 'Edge Computing' },
+            { path: '/services/cicd-automation', label: 'CI/CD Automation' }
+          ]
+        },
+        {
+          label: 'Product Engineering',
+          subItems: [
+            { path: '/services/product-engineering', label: 'Product Engineering' },
+            { path: '/services/custom-development', label: 'Custom Development' },
+            { path: '/services/micro-saas', label: 'SaaS Development' }
+          ]
+        }
+      ]
+    },
     {
       label: 'AI for Industry',
       dropdown: [
-        { path: '/ai-for-industry', label: 'Overview' },
         { path: '/ai-for-industry/sales', label: 'AI for Sales' },
         { path: '/ai-for-industry/legal', label: 'AI for Legal' },
         { path: '/ai-for-industry/accounting', label: 'AI for Accounting' },
@@ -61,9 +84,8 @@ export function Navigation() {
         { path: '/solutions/fintech', label: 'FinTech' },
         { path: '/solutions/environmenttech', label: 'EnvironmentTech' },
         { path: '/solutions/legal-and-tax', label: 'Legal & Tax' },
-        { path: '/solutions/retail-tech', label: 'Retail Tech' },
-        { path: '/solutions/foodtech', label: 'FoodTech' },
-        { path: '/portfolio', label: 'Portfolio' }
+        { path: '/solutions/retail-tech', label: 'RetailTech' },
+        { path: '/solutions/foodtech', label: 'FoodTech' }
       ]
     },
     { path: '/contact', label: 'Contact' },
@@ -72,6 +94,7 @@ export function Navigation() {
   const handleLinkClick = () => {
     setIsOpen(false);
     setActiveDropdown(null);
+    setClickedServiceCategory(null);
   };
 
   return (
@@ -110,10 +133,43 @@ export function Navigation() {
                 {item.dropdown ? (
                   <div
                     className="relative"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => {
+                      // Solutions and Services open on hover (desktop only)
+                      if (item.label === 'Solutions' || item.label === 'Services') {
+                        setActiveDropdown(item.label);
+                      } else {
+                        setActiveDropdown(item.label);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      // Solutions: Close on mouse leave
+                      // Services: Only close dropdown if no category is clicked
+                      if (item.label === 'Solutions') {
+                        setActiveDropdown(null);
+                      } else if (item.label === 'Services') {
+                        if (clickedServiceCategory === null) {
+                          setActiveDropdown(null);
+                        }
+                      } else {
+                        setActiveDropdown(null);
+                        setClickedServiceCategory(null);
+                      }
+                    }}
                   >
                     <button
+                      onClick={() => {
+                        // Services: Click to toggle dropdown (click-only, no hover)
+                        if (item.label === 'Services') {
+                          if (activeDropdown === item.label) {
+                            // Close dropdown and reset clicked category
+                            setActiveDropdown(null);
+                            setClickedServiceCategory(null);
+                          } else {
+                            // Open dropdown
+                            setActiveDropdown(item.label);
+                          }
+                        }
+                      }}
                       className="flex items-center gap-1 text-white hover:text-gray-300 transition-colors"
                     >
                       <motion.span
@@ -131,23 +187,132 @@ export function Navigation() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
-                          className={`absolute top-full left-0 mt-2 glass-effect rounded-xl border border-white/10 overflow-hidden max-h-[80vh] overflow-y-auto z-50 ${item.label === 'About Us' ? 'w-48 xl:w-56 p-2 flex flex-col gap-2' : 'w-56 xl:w-64'
+                          onMouseEnter={() => {
+                            // Keep Solutions dropdown open on hover
+                            // Services: Keep open if category is clicked
+                            if (item.label === 'Solutions') {
+                              setActiveDropdown(item.label);
+                            } else if (item.label === 'Services') {
+                              // Keep Services dropdown open if category is clicked
+                              if (clickedServiceCategory !== null) {
+                                setActiveDropdown(item.label);
+                              }
+                            } else {
+                              setActiveDropdown(item.label);
+                            }
+                          }}
+                          onMouseLeave={() => {
+                            // Solutions: Close on mouse leave
+                            // Services: Only close dropdown if no category is clicked
+                            if (item.label === 'Solutions') {
+                              setActiveDropdown(null);
+                            } else if (item.label === 'Services') {
+                              if (clickedServiceCategory === null) {
+                                setActiveDropdown(null);
+                              }
+                            } else {
+                              setActiveDropdown(null);
+                            }
+                          }}
+                          onClick={(e) => {
+                            if (item.label === 'Services' && !(e.target as HTMLElement).closest('button')) {
+                              e.stopPropagation();
+                            }
+                          }}
+                          className={`absolute top-full left-0 mt-2 glass-effect rounded-xl border border-white/10 overflow-visible max-h-[80vh] overflow-y-auto z-50 ${item.label === 'About Us' ? 'w-48 xl:w-56 p-2 flex flex-col gap-2' : item.label === 'Services' ? 'w-64 xl:w-72' : 'w-56 xl:w-64'
                             }`}
                         >
-                          {item.dropdown.map((subItem, subIndex) => (
-                            <Link
-                              key={subItem.path}
-                              to={subItem.path}
-                              onClick={handleLinkClick}
-                              className={`block transition-colors ${item.label === 'About Us' ? 'px-4 py-2 rounded-lg' : 'px-4 py-3'
-                                } ${location.pathname === subItem.path
-                                  ? 'text-white bg-white/10'
-                                  : 'text-white hover:bg-white/10 hover:text-white'
-                                }`}
-                            >
-                              {subItem.label}
-                            </Link>
-                          ))}
+                          {item.dropdown.map((subItem, subIndex) => {
+                            // Check if this is a Services category with sub-items
+                            const hasSubItems = (subItem as any).subItems && (subItem as any).subItems.length > 0;
+                            
+                            if (hasSubItems && item.label === 'Services') {
+                              // Services: Click-based behavior for categories
+                              const isClicked = clickedServiceCategory === subItem.label;
+                              const hasClickedCategory = clickedServiceCategory !== null;
+                              
+                              // If a category is clicked, only show that category and its sub-items
+                              // Otherwise, show all categories (hover state)
+                              if (hasClickedCategory && !isClicked) {
+                                return null; // Hide other categories when one is clicked
+                              }
+                              
+                              return (
+                                <div key={subItem.label || subIndex}>
+                                  <button
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      e.stopPropagation();
+                                      // Toggle clicked category
+                                      if (clickedServiceCategory === subItem.label) {
+                                        setClickedServiceCategory(null);
+                                      } else {
+                                        setClickedServiceCategory(subItem.label);
+                                      }
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      // Prevent hover expansion - only click works
+                                      e.stopPropagation();
+                                    }}
+                                    className={`w-full px-4 py-3 flex items-center justify-between text-white hover:bg-white/10 transition-colors cursor-pointer ${isClicked ? 'bg-white/10' : ''}`}
+                                  >
+                                    <span className="whitespace-nowrap">{subItem.label}</span>
+                                    <ChevronDown className={`w-4 h-4 transition-transform ${isClicked ? 'rotate-180' : ''}`} />
+                                  </button>
+                                  {isClicked && (
+                                    <motion.div
+                                      initial={{ opacity: 0, height: 0 }}
+                                      animate={{ opacity: 1, height: 'auto' }}
+                                      exit={{ opacity: 0, height: 0 }}
+                                      className="overflow-hidden"
+                                      onMouseEnter={(e) => {
+                                        // Keep dropdown open when hovering over sub-items
+                                        e.stopPropagation();
+                                      }}
+                                    >
+                                      <div className="pl-4">
+                                        {(subItem as any).subItems.map((subSubItem: any) => (
+                                          <Link
+                                            key={subSubItem.path}
+                                            to={subSubItem.path}
+                                            onClick={() => {
+                                              handleLinkClick();
+                                              // Close Services dropdown when clicking a sub-item
+                                              setActiveDropdown(null);
+                                              setClickedServiceCategory(null);
+                                            }}
+                                            className={`block px-4 py-3 transition-colors whitespace-nowrap ${location.pathname === subSubItem.path
+                                              ? 'text-white bg-white/10'
+                                              : 'text-white hover:bg-white/10 hover:text-white'
+                                              }`}
+                                          >
+                                            {subSubItem.label}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </div>
+                              );
+                            }
+                            
+                            // Regular dropdown item
+                            if (!(subItem as any).path) return null;
+                            return (
+                              <Link
+                                key={(subItem as any).path}
+                                to={(subItem as any).path}
+                                onClick={handleLinkClick}
+                                className={`block transition-colors ${item.label === 'AI for Industry' ? 'whitespace-nowrap' : ''} ${item.label === 'About Us' ? 'px-4 py-2 rounded-lg' : 'px-4 py-3'
+                                  } ${location.pathname === (subItem as any).path
+                                    ? 'text-white bg-white/10'
+                                    : 'text-white hover:bg-white/10 hover:text-white'
+                                  }`}
+                              >
+                                {subItem.label}
+                              </Link>
+                            );
+                          })}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -257,22 +422,79 @@ export function Navigation() {
                             {item.label}
                           </div>
                         )}
-                        {item.dropdown.map((subItem) => (
-                          <Link
-                            key={subItem.path}
-                            to={subItem.path}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleLinkClick();
-                            }}
-                            className={`block py-3 px-6 sm:px-8 rounded-lg transition-all min-h-[44px] flex items-center text-sm sm:text-base ${location.pathname === subItem.path
-                              ? 'text-white bg-white/10'
-                              : 'text-white hover:bg-white/10 hover:text-white'
-                              }`}
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
+                        {item.dropdown.map((subItem, subIndex) => {
+                          const hasSubItems = (subItem as any).subItems && (subItem as any).subItems.length > 0;
+                          const subMenuKey = `${item.label}-${subItem.label}-${subIndex}`;
+                          
+                          if (hasSubItems && item.label === 'Services') {
+                            // Services: Click-based behavior for mobile - show only clicked category
+                            const isOpen = openSubMenus[subMenuKey];
+                            const hasOpenCategory = Object.values(openSubMenus).some(v => v === true);
+                            
+                            // If a category is open, only show that category and its sub-items
+                            if (hasOpenCategory && !isOpen) {
+                              return null; // Hide other categories when one is open
+                            }
+                            
+                            return (
+                              <div key={subItem.label || subIndex}>
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    // Close all other service categories, toggle this one
+                                    const newState: { [key: string]: boolean } = {};
+                                    if (!isOpen) {
+                                      newState[subMenuKey] = true;
+                                    }
+                                    setOpenSubMenus(newState);
+                                  }}
+                                  className={`w-full py-3 px-6 sm:px-8 rounded-lg transition-all min-h-[44px] flex items-center justify-between text-sm sm:text-base text-white hover:bg-white/10 ${isOpen ? 'bg-white/10' : ''}`}
+                                >
+                                  <span>{subItem.label}</span>
+                                  <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                                </button>
+                                {isOpen && (
+                                  <div className="pl-4">
+                                    {(subItem as any).subItems.map((subSubItem: any) => (
+                                      <Link
+                                        key={subSubItem.path}
+                                        to={subSubItem.path}
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleLinkClick();
+                                        }}
+                                        className={`block py-3 px-6 sm:px-8 rounded-lg transition-all min-h-[44px] flex items-center text-sm sm:text-base ${location.pathname === subSubItem.path
+                                          ? 'text-white bg-white/10'
+                                          : 'text-white hover:bg-white/10 hover:text-white'
+                                          }`}
+                                      >
+                                        {subSubItem.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          }
+                          
+                          if (!(subItem as any).path) return null;
+                          return (
+                            <Link
+                              key={(subItem as any).path}
+                              to={(subItem as any).path}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleLinkClick();
+                              }}
+                              className={`block py-3 px-6 sm:px-8 rounded-lg transition-all min-h-[44px] flex items-center text-sm sm:text-base ${item.label === 'AI for Industry' ? 'whitespace-nowrap' : ''} ${location.pathname === (subItem as any).path
+                                ? 'text-white bg-white/10'
+                                : 'text-white hover:bg-white/10 hover:text-white'
+                                }`}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     ) : (
                       <Link

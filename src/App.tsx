@@ -14,6 +14,8 @@ import { HTICUDAAccelerationPage } from './components/portfolio/HTICUDAAccelerat
 import { ContactPage } from './components/ContactPage';
 import { BrochurePage } from './components/BrochurePage';
 import { PlaceholderPage } from './components/PlaceholderPage';
+import { TeamPage } from './components/about/TeamPage';
+import { AboutPortfolioPage } from './components/about/AboutPortfolioPage';
 import { PageTransition } from './components/PageTransition';
 import { ScrollProgress } from './components/ScrollProgress';
 import { AnimatePresence } from 'motion/react';
@@ -108,8 +110,14 @@ function AnimatedRoutes() {
         <Route path="/ai-for-industry/marketing" element={<PageTransition><AIForMarketingPage /></PageTransition>} />
         <Route path="/ai-for-industry/rnd" element={<PageTransition><AIForRnDPage /></PageTransition>} />
 
+        {/* About Us routes */}
+        <Route path="/about/team" element={<PageTransition><TeamPage /></PageTransition>} />
+        <Route path="/about/portfolio" element={<PageTransition><AboutPortfolioPage /></PageTransition>} />
+        <Route path="/about/blog" element={<PageTransition><PlaceholderPage title="Blog" description="Stay updated with the latest insights, trends, and best practices in AI, machine learning, and GPU optimization." /></PageTransition>} />
+        <Route path="/about/career" element={<PageTransition><PlaceholderPage title="Careers" description="Join our world-class team of AI engineers and data scientists. Build the future of AI optimization with Jashom." /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><TeamPage /></PageTransition>} />
+        
         {/* Placeholder routes */}
-        <Route path="/about" element={<PageTransition><PlaceholderPage title="About Us" description="Learn more about Jashom's mission, vision, and the team driving AI innovation across industries." /></PageTransition>} />
         <Route path="/careers" element={<PageTransition><PlaceholderPage title="Careers" description="Join our world-class team of AI engineers and data scientists. Build the future of AI optimization with Jashom." /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><PlaceholderPage title="Blog" description="Stay updated with the latest insights, trends, and best practices in AI, machine learning, and GPU optimization." /></PageTransition>} />
         <Route path="/news" element={<PageTransition><PlaceholderPage title="News" description="Read the latest news, announcements, and press releases from Jashom." /></PageTransition>} />

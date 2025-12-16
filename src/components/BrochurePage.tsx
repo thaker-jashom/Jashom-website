@@ -68,7 +68,7 @@ const slides = [
       { icon: Heart, name: 'HealthTech', color: 'from-[#ffffff] to-[#d1d5db]' },
       { icon: Utensils, name: 'FoodTech', color: 'from-[#d1d5db] to-[#ffffff]' },
       { icon: Leaf, name: 'EnvironmentTech', color: 'from-[#ffffff] to-[#d1d5db]' },
-      { icon: ShoppingBag, name: 'Retail Tech', color: 'from-[#d1d5db] to-[#ffffff]' }
+      { icon: ShoppingBag, name: 'RetailTech', color: 'from-[#d1d5db] to-[#ffffff]' }
     ]
   },
   {
@@ -164,7 +164,7 @@ const slides = [
   {
     id: 9,
     type: 'service-detail',
-    title: 'Retail Tech for Garments',
+    title: 'RetailTech for Garments',
     subtitle: 'Fashion Innovation',
     content: {
       description: 'AI and analytics for the garment industry—from design to distribution—enabling faster decisions and personalized experiences.',

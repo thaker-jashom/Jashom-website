@@ -70,7 +70,7 @@ export function SolutionsPage() {
     },
     {
       icon: ShoppingCart,
-      title: 'Retail Tech',
+      title: 'RetailTech',
       path: '/solutions/retail-tech',
       description: 'Reimagine retail with AI-driven personalization, automation, and predictive intelligence.',
       features: ['Personalization', 'Sales Forecasting', 'Computer Vision', 'Store Analytics']
