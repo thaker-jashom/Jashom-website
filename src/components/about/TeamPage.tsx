@@ -21,7 +21,7 @@ const staggerItem = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 10
     }
@@ -33,37 +33,44 @@ export function TeamPage() {
     {
       name: 'Jay Dave',
       role: 'Founder',
-      linkedin: 'https://www.linkedin.com/in/jayksdave'
+      bio: 'Visionary founder leading the company\'s strategy, innovation, and long-term growth.',
+      linkedin: 'https://www.linkedin.com/in/jayksdave',
+      image: '/team-images/jay-dave.jpg'
+    },
+    {
+      name: 'Maxime Derian',
+      role: 'Partner (Europe Region)',
+      bio: 'Leads business growth and partnerships across the European market.',
+      linkedin: 'https://www.linkedin.com/in/maxime-derian/',
+      image: '/team-images/maxime-derian.jpg'
     },
     {
       name: 'Soham Thaker',
       role: 'Tech Lead',
-      linkedin: 'https://www.linkedin.com/in/thakersoham/'
-    },
-    {
-      name: 'Archana Trivedi',
-      role: 'Operation Manager',
-      linkedin: 'https://www.linkedin.com/in/archana-trivedi-326b65110'
-    },
-    {
-      name: 'Arpit',
-      role: 'DevOps and Security Head (CISO)',
-      linkedin: 'https://www.linkedin.com/in/arpit-christie/'
+      bio: 'Leads technical strategy and architecture, ensuring scalable and high-quality solutions across projects.',
+      linkedin: 'https://www.linkedin.com/in/thakersoham/',
+      image: '/team-images/soham-thaker.jpg'
     },
     {
       name: 'Dhwanan Gadani',
       role: 'Partner & Delivery Head',
-      linkedin: 'https://www.linkedin.com/in/dhwanan'
+      bio: 'Manages project delivery and client success, ensuring timely execution and quality outcomes.',
+      linkedin: 'https://www.linkedin.com/in/dhwanan',
+      image: '/team-images/dhwanan-gadani.jpg'
     },
     {
-      name: 'Maxime Derian',
-      role: 'Partner – Europe Region',
-      linkedin: 'https://www.linkedin.com/in/maxime-derian/'
+      name: 'Archana Trivedi',
+      role: 'Operations Manager',
+      bio: 'Oversees day-to-day operations to ensure smooth execution, efficiency, and process excellence.',
+      linkedin: 'https://www.linkedin.com/in/archana-trivedi-326b65110',
+      image: '/team-images/archana-trivedi.jpg'
     },
     {
       name: 'Abhishek Bhagwat',
       role: 'Sales Manager',
-      linkedin: 'https://www.linkedin.com/in/abhishek-bhagwat-037221248/'
+      bio: 'Drives sales strategy and client acquisition by aligning business needs with tailored solutions.',
+      linkedin: 'https://www.linkedin.com/in/abhishek-bhagwat-037221248/',
+      image: '/team-images/abhishek-bhagwat.jpg'
     }
   ];
 
@@ -115,13 +122,40 @@ export function TeamPage() {
               >
                 <GlassCard>
                   <div className="text-center relative">
+                    <motion.div
+                      className="mb-4 flex justify-center"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      {member.image ? (
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-white/20 overflow-hidden">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-center"
+                            style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white/5 border-2 border-white/20 flex items-center justify-center">
+                          <span className="text-white/40 text-2xl sm:text-3xl font-semibold">
+                            {member.name.split(' ').map(n => n[0]).join('').toUpperCase()}
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
                     <h3 className="text-white mb-2 text-lg sm:text-xl">{member.name}</h3>
-                    <p className="text-white/70 mb-4 text-sm sm:text-base">{member.role}</p>
+                    <p className="text-white/70 mb-3 text-sm sm:text-base">{member.role}</p>
+                    {member.bio && (
+                      <p className="text-white/60 mb-5 text-sm leading-relaxed px-2">{member.bio}</p>
+                    )}
                     <a
                       href={member.linkedin || '#'}
                       target={member.linkedin ? "_blank" : undefined}
                       rel={member.linkedin ? "noopener noreferrer" : undefined}
-                      className="inline-flex items-center justify-center text-[#d1d5db] hover:text-white transition-colors"
+                      className="inline-flex items-center justify-center text-[#d1d5db] hover:text-white transition-colors mt-1"
                       onClick={(e) => {
                         if (!member.linkedin) {
                           e.preventDefault();
