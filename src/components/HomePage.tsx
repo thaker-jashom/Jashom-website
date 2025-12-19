@@ -151,6 +151,14 @@ export function HomePage() {
               >
                 Start Your AI Transformation
               </Link>
+              <a
+                href="https://calendly.com/jaydave-jashom/new-meeting"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-auto max-w-xs px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-black border border-white text-white hover:bg-white hover:text-black transition-all duration-300 text-center text-sm sm:text-base"
+              >
+                Schedule a Meeting
+              </a>
             </motion.div>
           </motion.div>
         </div>
