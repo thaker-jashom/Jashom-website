@@ -24,6 +24,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor directories and files
+.vscode/*
 !.vscode/extensions.json
 .idea
 *.suo
@@ -72,4 +73,3 @@ out
 # Storybook build outputs
 storybook-static
 
-config.bat
